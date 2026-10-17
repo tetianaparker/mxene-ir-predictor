@@ -1,0 +1,34 @@
+mxene,sample,bond,vibration,irrep,band_low_cm1,band_high_cm1,band_mid_cm1,confidence,source,note
+Ti3C2Tx,mixed-termination,O-H,stretching,Eu,3200,3600,3400,table,Parker et al. Chem. Mater. 2024 Fig. 3b,confined water / OH termination
+Ti3C2Tx,mixed-termination,C-H,stretching,Eu,2800,3000,2900,table,Parker et al. Chem. Mater. 2024 Fig. 3b,adsorbates
+Ti3C2Tx,mixed-termination,C=O,stretching,Eu,1700,1750,1725,table,Parker et al. Chem. Mater. 2024 Fig. 3b,surface carbon bonds
+Ti3C2Tx,mixed-termination,C-O,stretching,Eu,1550,1700,1625,table,Parker et al. Chem. Mater. 2024 Fig. 3b,surface carbon bonds
+Ti3C2Tx,mixed-termination,C-H,bending,A2u,1400,1500,1450,table,Parker et al. Chem. Mater. 2024 Fig. 3b,adsorbates
+Ti3C2Tx,mixed-termination,O-H,bending,A2u,1300,1500,1400,table,Parker et al. Chem. Mater. 2024 Fig. 3b,OH termination / water
+Ti3C2Tx,mixed-termination,C-F,stretching,Eu,1000,1400,1200,table,Parker et al. Chem. Mater. 2024 Fig. 3b,compare to F-terminated prediction
+Ti3C2Tx,mixed-termination,Ti-F,bending,A2u,700,750,725,table,Parker et al. Chem. Mater. 2024 Fig. 3b,compare to Ti3C2F2 prediction
+Ti3C2Tx,mixed-termination,Ti-O,bending,A2u,550,650,600,table,Parker et al. Chem. Mater. 2024 Fig. 3b,compare to Ti3C2O2 prediction
+Ti3C2Tx,mixed-termination,C-C,bending,A2u,400,500,450,table,Parker et al. Chem. Mater. 2024 Fig. 3b,lattice mode
+Ti3C2Tx,mixed-termination,Ti-C,stretching,Eu,350,450,400,table,Parker et al. Chem. Mater. 2024 Fig. 3b,lattice mode
+Ti3CNTx,mixed-termination,Ti-O,bending,A2u,600,650,627,readoff ±25,Parker et al. Chem. Mater. 2024 SI stacked spectra,main fingerprint dip
+Ti3CNTx,mixed-termination,C-C / Ti-C,bending,A2u,440,490,463,readoff ±25,Parker et al. Chem. Mater. 2024 SI stacked spectra,second dip
+Ti2CTx,mixed-termination,Ti-O,bending,A2u,600,650,627,readoff ±25,Parker et al. Chem. Mater. 2024 SI stacked spectra,deepest dip of the set
+Ti2CTx,mixed-termination,C-C / Ti-C,bending,A2u,475,525,500,readoff ±25,Parker et al. Chem. Mater. 2024 SI stacked spectra,shoulder
+Nb2CTx,mixed-termination,Nb-O,bending,A2u,600,650,627,readoff ±25,Parker et al. Chem. Mater. 2024 SI stacked spectra,main dip
+Nb2CTx,mixed-termination,C-C / Nb-C,bending,A2u,420,470,443,readoff ±25,Parker et al. Chem. Mater. 2024 SI stacked spectra,second dip
+Mo2CTx,mixed-termination,Mo-O,bending,A2u,605,655,632,readoff ±25,Parker et al. Chem. Mater. 2024 SI stacked spectra,main dip
+Mo2CTx,mixed-termination,C-C / Mo-C,bending,A2u,430,480,453,readoff ±25,Parker et al. Chem. Mater. 2024 SI stacked spectra,second dip
+V2CTx,mixed-termination,V-O,bending,A2u,590,640,617,readoff ±25,Parker et al. Chem. Mater. 2024 SI stacked spectra,main dip
+V2CTx,mixed-termination,C-C / V-C,bending,A2u,450,500,472,readoff ±25,Parker et al. Chem. Mater. 2024 SI stacked spectra,second dip
+Mo2TiC2Tx,mixed-termination,Ti-O / Mo-O,bending,A2u,595,645,622,readoff ±25,Parker et al. Chem. Mater. 2024 SI stacked spectra,main dip
+Mo2TiC2Tx,mixed-termination,C-C / Mo-C,bending,A2u,445,495,467,readoff ±25,Parker et al. Chem. Mater. 2024 SI stacked spectra,second dip
+Mo2Ti2C3Tx,mixed-termination,Ti-O / Mo-O,bending,A2u,590,640,617,readoff ±25,Parker et al. Chem. Mater. 2024 SI stacked spectra,main dip
+Mo2Ti2C3Tx,mixed-termination,C-C / Mo-C,bending,A2u,460,510,482,readoff ±25,Parker et al. Chem. Mater. 2024 SI stacked spectra,second dip
+Mo4VC4Tx,mixed-termination,V-O / Mo-O,bending,A2u,590,640,617,readoff ±25,Parker et al. Chem. Mater. 2024 SI stacked spectra,main dip
+Mo4VC4Tx,mixed-termination,C-C / Mo-C,bending,A2u,440,490,463,readoff ±25,Parker et al. Chem. Mater. 2024 SI stacked spectra,second dip
+Nb4C3Tx,mixed-termination,Nb-O,bending,A2u,585,635,612,readoff ±25,Parker et al. Chem. Mater. 2024 SI stacked spectra,main dip
+Nb4C3Tx,mixed-termination,C-C / Nb-C,bending,A2u,420,470,443,readoff ±25,Parker et al. Chem. Mater. 2024 SI stacked spectra,second dip
+V4C3Tx,mixed-termination,V-O,bending,A2u,575,625,598,readoff ±25,Parker et al. Chem. Mater. 2024 SI stacked spectra,main dip
+V4C3Tx,mixed-termination,C-C / V-C,bending,A2u,440,490,463,readoff ±25,Parker et al. Chem. Mater. 2024 SI stacked spectra,second dip
+Ta4C3Tx,mixed-termination,Ta-O,bending,A2u,570,620,593,readoff ±25,Parker et al. Chem. Mater. 2024 SI stacked spectra,main dip
+Ta4C3Tx,mixed-termination,C-C / Ta-C,bending,A2u,410,460,434,readoff ±25,Parker et al. Chem. Mater. 2024 SI stacked spectra,second dip
