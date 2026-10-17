@@ -162,5 +162,7 @@
       "acoustic": false,
       "imaginary": false
     }
-  ]
+  ],
+  "reliable": false,
+  "reliability_note": "MACE-MP-0: two imaginary modes (-184 Eu, -118 Eg; in-plane O/C shear) and a +5.8% lattice expansion; hcp-site relaxation gave an impossible -23 eV/cell energy drop."
 }

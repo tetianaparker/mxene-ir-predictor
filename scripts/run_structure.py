@@ -1,10 +1,11 @@
 """Γ-point IR prediction for one surface-terminated MXene (see CLAUDE.md).
 
-Usage: python scripts/run_structure.py <name> [--model medium] [--relax-only]
+Usage: python scripts/run_structure.py <name> [--potential mace|chgnet] [--relax-only]
 
 Builds the slab from data/structures.csv, relaxes in-plane lattice + ions with
-MACE-MP-0 (c fixed), runs phonopy finite displacements (2x2x1, 0.01 A), and
-writes runs/<name>/summary.json plus rows in results/predictions.csv.
+MACE-MP-0 or CHGNet (c fixed), runs phonopy finite displacements (2x2x1, 0.01 A),
+and writes runs/<name>/summary.json plus rows in results/predictions.csv
+(CHGNet: runs/<name>_chgnet/, results/predictions_chgnet.csv).
 """
 
 import argparse
@@ -104,9 +105,21 @@ def geometry_report(atoms):
     return "\n".join(lines)
 
 
-def get_calc(model):
+def get_calc(potential, model):
+    if potential == "chgnet":
+        from chgnet.model import CHGNet
+        from chgnet.model.dynamics import CHGNetCalculator
+        m = CHGNet.load()
+        return CHGNetCalculator(model=m, use_device="cpu"), f"CHGNet {m.version}"
     from mace.calculators import mace_mp
-    return mace_mp(model=model, device="cpu", default_dtype="float64")
+    return mace_mp(model=model, device="cpu", default_dtype="float64"), f"MACE-MP-0 {model}"
+
+
+def outputs(potential):
+    """Paths for predictions CSV and committed summaries, per potential."""
+    if potential == "chgnet":
+        return ROOT / "results/predictions_chgnet.csv", ROOT / "results/summaries_chgnet", "_chgnet"
+    return ROOT / "results/predictions.csv", ROOT / "results/summaries", ""
 
 
 def relax(atoms, calc, logfile):
@@ -165,8 +178,10 @@ def phonons(atoms, calc):
     return ph, modes, asr_correction, acoustic_max, irr._pointgroup_symbol, len(forces)
 
 
-def append_predictions(name, term, modes):
-    path = ROOT / "results/predictions.csv"
+FIELDS = ["name", "termination", "frequency_cm1", "irrep", "ir_active", "reliable"]
+
+
+def append_predictions(path, name, term, modes, reliable):
     path.parent.mkdir(exist_ok=True)
     rows = []
     if path.exists():
@@ -176,9 +191,9 @@ def append_predictions(name, term, modes):
         if m["acoustic"]:
             continue
         rows.append({"name": name, "termination": term, "frequency_cm1": m["frequency_cm1"],
-                     "irrep": m["irrep"], "ir_active": m["ir_active"]})
+                     "irrep": m["irrep"], "ir_active": m["ir_active"], "reliable": reliable})
     with open(path, "w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=["name", "termination", "frequency_cm1", "irrep", "ir_active"])
+        w = csv.DictWriter(f, fieldnames=FIELDS)
         w.writeheader()
         w.writerows(rows)
 
@@ -186,7 +201,8 @@ def append_predictions(name, term, modes):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("name")
-    ap.add_argument("--model", default="medium")
+    ap.add_argument("--potential", choices=["mace", "chgnet"], default="mace")
+    ap.add_argument("--model", default="medium", help="MACE-MP-0 size")
     ap.add_argument("--site", help="override the site column (e.g. for a site check)")
     ap.add_argument("--relax-only", action="store_true")
     ap.add_argument("--tag", default="", help="suffix for the run directory")
@@ -195,14 +211,15 @@ def main():
     row = load_row(args.name)
     if args.site:
         row["site"] = args.site
-    run = ROOT / "runs" / (args.name + args.tag)
+    pred_csv, summ_dir, suffix = outputs(args.potential)
+    run = ROOT / "runs" / (args.name + suffix + args.tag)
     run.mkdir(parents=True, exist_ok=True)
 
     atoms, _ = build_slab(row)
     write(run / "initial.vasp", atoms, format="vasp", direct=True, sort=False)
     print("== initial geometry ==\n" + geometry_report(atoms), flush=True)
 
-    calc = get_calc(args.model)
+    calc, model_label = get_calc(args.potential, args.model)
     relaxed, converged, nsteps = relax(atoms, calc, run / "relax.log")
     relaxed.calc = calc
     energy = float(relaxed.get_potential_energy())
@@ -214,7 +231,7 @@ def main():
     print(f"a: csv {float(row['a_A']):.4f} -> relaxed {a1:.4f} A ({100 * (a1 / a0 - 1):+.2f}%)", flush=True)
 
     summary = {
-        "name": args.name, "row": row, "model": f"MACE-MP-0 {args.model}",
+        "name": args.name, "row": row, "model": model_label,
         "settings": {"supercell": "2x2x1", "vacuum_A": float(row["vacuum_A"]), "displacement_A": DISP,
                      "relax_fmax_eV_A": FMAX, "c_fixed_A": round(float(atoms.cell.lengths()[2]), 4)},
         "a_input_A": round(float(a0), 4), "a_relaxed_A": round(float(a1), 4),
@@ -230,13 +247,19 @@ def main():
             "asr_max_fc_correction_eV_A2": asr_corr, "acoustic_max_abs_cm1": round(ac_max, 2),
             "imaginary_modes": [m for m in modes if m["imaginary"]], "modes": modes,
         })
-        if not args.tag:
-            append_predictions(args.name, row["termination"], modes)
+    # a manual reliable=false verdict (with its note) survives reruns until edited by hand
+    summ_path = summ_dir / f"{args.name}.json"
+    old = json.loads(summ_path.read_text()) if summ_path.exists() else {}
+    summary["reliable"] = old.get("reliable", True)
+    if "reliability_note" in old:
+        summary["reliability_note"] = old["reliability_note"]
+    if not args.relax_only and not args.tag:
+        append_predictions(pred_csv, args.name, row["termination"], modes, summary["reliable"])
     text = json.dumps(summary, indent=2)
     (run / "summary.json").write_text(text)
     if not args.tag and not args.relax_only:  # runs/ is gitignored; keep a committed copy
-        (ROOT / "results/summaries").mkdir(parents=True, exist_ok=True)
-        (ROOT / f"results/summaries/{args.name}.json").write_text(text)
+        summ_dir.mkdir(parents=True, exist_ok=True)
+        summ_path.write_text(text)
     print(f"wrote {run / 'summary.json'}")
 
 

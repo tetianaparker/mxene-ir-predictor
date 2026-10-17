@@ -137,5 +137,7 @@
       "acoustic": false,
       "imaginary": false
     }
-  ]
+  ],
+  "reliable": false,
+  "reliability_note": "MACE-MP-0 relaxation collapses the slab: a 3.03->2.76 A (-9%), Ti-C ~1.99 A, Ti-O ~1.77 A; non-physical IR modes at 1301 and 1886 cm-1."
 }
