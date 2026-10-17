@@ -1,0 +1,6 @@
+# torch: CPU wheel from download.pytorch.org/whl/cpu if reachable, else PyPI
+torch==2.14.1
+ase==3.29.0
+pymatgen
+phonopy==4.8.3
+mace-torch==0.3.16

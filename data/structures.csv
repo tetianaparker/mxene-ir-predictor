@@ -1,5 +1,5 @@
-name,M,n,X,termination,site,a_A,c_A,note
-Ti3C2O2,Ti,3,C,O,fcc,3.03,20,confirm site
+name,M,n,X,termination,site,a_A,vacuum_A,note
+Ti3C2O2,Ti,3,C,O,fcc,3.03,20,fcc confirmed (MACE-MP-0: hcp +1.04 eV per cell)
 Ti3C2OH2,Ti,3,C,OH,fcc,3.07,20,
 Ti3C2F2,Ti,3,C,F,fcc,3.06,20,
 Ti3C2Cl2,Ti,3,C,Cl,fcc,3.14,20,
