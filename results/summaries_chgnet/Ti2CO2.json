@@ -1,0 +1,143 @@
+{
+  "name": "Ti2CO2",
+  "row": {
+    "name": "Ti2CO2",
+    "M": "Ti",
+    "n": "2",
+    "X": "C",
+    "termination": "O",
+    "site": "fcc",
+    "a_A": "3.03",
+    "vacuum_A": "20",
+    "note": ""
+  },
+  "model": "CHGNet 0.3.0",
+  "settings": {
+    "supercell": "2x2x1",
+    "vacuum_A": 20.0,
+    "displacement_A": 0.01,
+    "relax_fmax_eV_A": 0.0001,
+    "c_fixed_A": 24.4188
+  },
+  "a_input_A": 3.03,
+  "a_relaxed_A": 3.0387,
+  "thickness_relaxed_A": 4.4618,
+  "relax_converged": true,
+  "relax_steps": 14,
+  "energy_eV": -46.296085357666016,
+  "energy_per_atom_eV": -9.259217071533204,
+  "point_group": "-3m",
+  "n_displacements": 6,
+  "asr_max_fc_correction_eV_A2": 0.27955649689526973,
+  "acoustic_max_abs_cm1": 0.0,
+  "imaginary_modes": [],
+  "modes": [
+    {
+      "bands": [
+        0,
+        1,
+        2
+      ],
+      "frequency_cm1": -0.0,
+      "degeneracy": 3,
+      "irrep": null,
+      "ir_active": true,
+      "acoustic": true,
+      "imaginary": false
+    },
+    {
+      "bands": [
+        3,
+        4
+      ],
+      "frequency_cm1": 113.16,
+      "degeneracy": 2,
+      "irrep": "Eg",
+      "ir_active": false,
+      "acoustic": false,
+      "imaginary": false
+    },
+    {
+      "bands": [
+        5
+      ],
+      "frequency_cm1": 212.06,
+      "degeneracy": 1,
+      "irrep": "A1g",
+      "ir_active": false,
+      "acoustic": false,
+      "imaginary": false
+    },
+    {
+      "bands": [
+        6,
+        7
+      ],
+      "frequency_cm1": 232.26,
+      "degeneracy": 2,
+      "irrep": "Eu",
+      "ir_active": true,
+      "acoustic": false,
+      "imaginary": false
+    },
+    {
+      "bands": [
+        8,
+        9
+      ],
+      "frequency_cm1": 281.24,
+      "degeneracy": 2,
+      "irrep": "Eg",
+      "ir_active": false,
+      "acoustic": false,
+      "imaginary": false
+    },
+    {
+      "bands": [
+        10
+      ],
+      "frequency_cm1": 387.66,
+      "degeneracy": 1,
+      "irrep": "A2u",
+      "ir_active": true,
+      "acoustic": false,
+      "imaginary": false
+    },
+    {
+      "bands": [
+        11
+      ],
+      "frequency_cm1": 421.02,
+      "degeneracy": 1,
+      "irrep": "A1g",
+      "ir_active": false,
+      "acoustic": false,
+      "imaginary": false
+    },
+    {
+      "bands": [
+        12,
+        13
+      ],
+      "frequency_cm1": 466.36,
+      "degeneracy": 2,
+      "irrep": "Eu",
+      "ir_active": true,
+      "acoustic": false,
+      "imaginary": false
+    },
+    {
+      "bands": [
+        14
+      ],
+      "frequency_cm1": 631.23,
+      "degeneracy": 1,
+      "irrep": "A2u",
+      "ir_active": true,
+      "acoustic": false,
+      "imaginary": false
+    }
+  ],
+  "reliable": false,
+  "reliability_note": "CHGNet (float32) frequencies not converged in this workflow: ASR correction 0.25-0.60 eV/A2 vs 7e-4 for MACE; the Ti3C2O2 control gets a spurious -74 cm-1 Eu mode at 0.01 A that vanishes at 0.03 A while IR modes shift by up to 56 cm-1. Relaxed geometry is usable; frequencies are not."
+}

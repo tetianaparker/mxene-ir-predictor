@@ -4,3 +4,4 @@ ase==3.29.0
 pymatgen
 phonopy==4.8.3
 mace-torch==0.3.16
+chgnet==0.4.2  # fallback potential; model v0.3.0
