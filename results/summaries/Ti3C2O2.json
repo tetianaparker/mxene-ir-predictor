@@ -8,8 +8,8 @@
     "termination": "O",
     "site": "fcc",
     "a_A": "3.03",
-    "c_A": "20",
-    "note": "confirm site"
+    "vacuum_A": "20",
+    "note": "fcc confirmed (MACE-MP-0: hcp +1.04 eV per cell)"
   },
   "model": "MACE-MP-0 medium",
   "settings": {

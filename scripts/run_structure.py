@@ -24,7 +24,6 @@ from phonopy.structure.atoms import PhonopyAtoms
 
 ROOT = Path(__file__).resolve().parents[1]
 THZ_TO_CM1 = 33.35641
-VACUUM = 20.0  # A along c, per CLAUDE.md
 SUPERCELL = [[2, 0, 0], [0, 2, 0], [0, 0, 1]]
 DISP = 0.01
 FMAX = 1e-4  # eV/A; phonons need a tight minimum
@@ -54,6 +53,7 @@ def build_slab(row):
     """
     M, n, X, term, site = row["M"], int(row["n"]), row["X"], row["termination"], row["site"]
     a = float(row["a_A"])
+    vacuum = float(row["vacuum_A"])
     xs = [X] * (n - 1) if X != "CN" else ["C", "N"][: n - 1]  # mixed X: one layer each
     order = ["A", "B", "C"]
     layers = []  # (symbol, site, z)
@@ -84,9 +84,9 @@ def build_slab(row):
     layers = term_layers(False) + layers + term_layers(True)
     zs = np.array([l[2] for l in layers])
     thickness = zs.max() - zs.min()
-    c = thickness + VACUUM
+    c = thickness + vacuum
     cell = [[a, 0, 0], [-a / 2, a * np.sqrt(3) / 2, 0], [0, 0, c]]
-    scaled = [[*SITES[s], (zz - zs.min() + VACUUM / 2) / c] for _, s, zz in layers]
+    scaled = [[*SITES[s], (zz - zs.min() + vacuum / 2) / c] for _, s, zz in layers]
     atoms = Atoms([l[0] for l in layers], scaled_positions=scaled, cell=cell, pbc=True)
     return atoms, thickness
 
@@ -215,7 +215,7 @@ def main():
 
     summary = {
         "name": args.name, "row": row, "model": f"MACE-MP-0 {args.model}",
-        "settings": {"supercell": "2x2x1", "vacuum_A": VACUUM, "displacement_A": DISP,
+        "settings": {"supercell": "2x2x1", "vacuum_A": float(row["vacuum_A"]), "displacement_A": DISP,
                      "relax_fmax_eV_A": FMAX, "c_fixed_A": round(float(atoms.cell.lengths()[2]), 4)},
         "a_input_A": round(float(a0), 4), "a_relaxed_A": round(float(a1), 4),
         "thickness_relaxed_A": round(float(slab_thickness(relaxed)), 4),
