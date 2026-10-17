@@ -1,0 +1,17 @@
+name,termination,frequency_cm1,irrep,ir_active,reliable
+Ti2CO2,O,110.54,Eg,False,True
+Ti2CO2,O,267.45,Eu,True,True
+Ti2CO2,O,274.78,A1g,False,True
+Ti2CO2,O,376.91,Eg,False,True
+Ti2CO2,O,457.48,Eu,True,True
+Ti2CO2,O,524.24,A2u,True,True
+Ti2CO2,O,544.44,A1g,False,True
+Ti2CO2,O,592.75,A2u,True,True
+Mo2CO2,O,74.08,Eg,False,False
+Mo2CO2,O,165.2,A1g,False,False
+Mo2CO2,O,308.88,Eu,True,False
+Mo2CO2,O,319.54,A2u,True,False
+Mo2CO2,O,358.08,Eg,False,False
+Mo2CO2,O,364.44,Eu,True,False
+Mo2CO2,O,430.34,A1g,False,False
+Mo2CO2,O,435.78,A2u,True,False

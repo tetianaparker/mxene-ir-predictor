@@ -1,0 +1,143 @@
+{
+  "name": "Mo2CO2",
+  "row": {
+    "name": "Mo2CO2",
+    "M": "Mo",
+    "n": "2",
+    "X": "C",
+    "termination": "O",
+    "site": "fcc",
+    "a_A": "2.87",
+    "vacuum_A": "20",
+    "note": ""
+  },
+  "model": "MACE-MPA-0 medium",
+  "settings": {
+    "supercell": "2x2x1",
+    "vacuum_A": 20.0,
+    "displacement_A": 0.01,
+    "relax_fmax_eV_A": 0.0001,
+    "c_fixed_A": 24.72
+  },
+  "a_input_A": 2.87,
+  "a_relaxed_A": 3.1898,
+  "thickness_relaxed_A": 4.3765,
+  "relax_converged": true,
+  "relax_steps": 13,
+  "energy_eV": -36.88387429283985,
+  "energy_per_atom_eV": -7.37677485856797,
+  "point_group": "-3m",
+  "n_displacements": 6,
+  "asr_max_fc_correction_eV_A2": 0.00029803567175545886,
+  "acoustic_max_abs_cm1": 0.0,
+  "imaginary_modes": [],
+  "modes": [
+    {
+      "bands": [
+        0,
+        1,
+        2
+      ],
+      "frequency_cm1": -0.0,
+      "degeneracy": 3,
+      "irrep": null,
+      "ir_active": true,
+      "acoustic": true,
+      "imaginary": false
+    },
+    {
+      "bands": [
+        3,
+        4
+      ],
+      "frequency_cm1": 74.08,
+      "degeneracy": 2,
+      "irrep": "Eg",
+      "ir_active": false,
+      "acoustic": false,
+      "imaginary": false
+    },
+    {
+      "bands": [
+        5
+      ],
+      "frequency_cm1": 165.2,
+      "degeneracy": 1,
+      "irrep": "A1g",
+      "ir_active": false,
+      "acoustic": false,
+      "imaginary": false
+    },
+    {
+      "bands": [
+        6,
+        7
+      ],
+      "frequency_cm1": 308.88,
+      "degeneracy": 2,
+      "irrep": "Eu",
+      "ir_active": true,
+      "acoustic": false,
+      "imaginary": false
+    },
+    {
+      "bands": [
+        8
+      ],
+      "frequency_cm1": 319.54,
+      "degeneracy": 1,
+      "irrep": "A2u",
+      "ir_active": true,
+      "acoustic": false,
+      "imaginary": false
+    },
+    {
+      "bands": [
+        9,
+        10
+      ],
+      "frequency_cm1": 358.08,
+      "degeneracy": 2,
+      "irrep": "Eg",
+      "ir_active": false,
+      "acoustic": false,
+      "imaginary": false
+    },
+    {
+      "bands": [
+        11,
+        12
+      ],
+      "frequency_cm1": 364.44,
+      "degeneracy": 2,
+      "irrep": "Eu",
+      "ir_active": true,
+      "acoustic": false,
+      "imaginary": false
+    },
+    {
+      "bands": [
+        13
+      ],
+      "frequency_cm1": 430.34,
+      "degeneracy": 1,
+      "irrep": "A1g",
+      "ir_active": false,
+      "acoustic": false,
+      "imaginary": false
+    },
+    {
+      "bands": [
+        14
+      ],
+      "frequency_cm1": 435.78,
+      "degeneracy": 1,
+      "irrep": "A2u",
+      "ir_active": true,
+      "acoustic": false,
+      "imaginary": false
+    }
+  ],
+  "reliable": false,
+  "reliability_note": "MACE-MPA-0 fails the sanity limit (a within 5% of input): fcc a = 3.190 A (+11.1%), hcp a = 3.088 A (+7.6%); hcp - fcc = +0.67 eV/cell (within the 1 eV limit). No imaginary modes, but the lattice is non-physical."
+}

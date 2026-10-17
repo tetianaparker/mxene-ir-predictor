@@ -1,11 +1,11 @@
 """Γ-point IR prediction for one surface-terminated MXene (see CLAUDE.md).
 
-Usage: python scripts/run_structure.py <name> [--potential mace|chgnet] [--relax-only]
+Usage: python scripts/run_structure.py <name> [--potential mace|mpa0|chgnet] [--relax-only]
 
 Builds the slab from data/structures.csv, relaxes in-plane lattice + ions with
 MACE-MP-0 or CHGNet (c fixed), runs phonopy finite displacements (2x2x1, 0.01 A),
 and writes runs/<name>/summary.json plus rows in results/predictions.csv
-(CHGNet: runs/<name>_chgnet/, results/predictions_chgnet.csv).
+(mpa0 = MACE-MPA-0 medium, CHGNet: runs/<name>_<potential>/, results/predictions_<potential>.csv).
 """
 
 import argparse
@@ -112,13 +112,16 @@ def get_calc(potential, model):
         m = CHGNet.load()
         return CHGNetCalculator(model=m, use_device="cpu"), f"CHGNet {m.version}"
     from mace.calculators import mace_mp
+    if potential == "mpa0":
+        return mace_mp(model="medium-mpa-0", device="cpu", default_dtype="float64"), "MACE-MPA-0 medium"
     return mace_mp(model=model, device="cpu", default_dtype="float64"), f"MACE-MP-0 {model}"
 
 
 def outputs(potential):
     """Paths for predictions CSV and committed summaries, per potential."""
-    if potential == "chgnet":
-        return ROOT / "results/predictions_chgnet.csv", ROOT / "results/summaries_chgnet", "_chgnet"
+    if potential != "mace":
+        return (ROOT / f"results/predictions_{potential}.csv", ROOT / f"results/summaries_{potential}",
+                f"_{potential}")
     return ROOT / "results/predictions.csv", ROOT / "results/summaries", ""
 
 
@@ -201,7 +204,7 @@ def append_predictions(path, name, term, modes, reliable):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("name")
-    ap.add_argument("--potential", choices=["mace", "chgnet"], default="mace")
+    ap.add_argument("--potential", choices=["mace", "mpa0", "chgnet"], default="mace")
     ap.add_argument("--model", default="medium", help="MACE-MP-0 size")
     ap.add_argument("--site", help="override the site column (e.g. for a site check)")
     ap.add_argument("--relax-only", action="store_true")
