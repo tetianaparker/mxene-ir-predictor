@@ -139,5 +139,5 @@
     }
   ],
   "reliable": false,
-  "reliability_note": "MACE-MPA-0 fails the sanity limit (a within 5% of input): fcc a = 3.190 A (+11.1%), hcp a = 3.088 A (+7.6%); hcp - fcc = +0.67 eV/cell (within the 1 eV limit). No imaginary modes, but the lattice is non-physical."
+  "reliability_note": "Three potentials expand Mo2CO2 by 6-11% from the experimental a = 2.87 A (MACE-MP-0 3.037, CHGNet 3.092, MACE-MPA-0 3.190 fcc / 3.088 hcp), so the input lattice itself is suspect. MPA-0 hcp - fcc = +0.67 eV/cell."
 }

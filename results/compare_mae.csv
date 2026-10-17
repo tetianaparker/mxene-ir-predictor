@@ -1,0 +1,9 @@
+set,termination,n_bands,mae_cm1,mae_loo_cm1,mae_loo_o_only_cm1,fit_all_a,fit_all_b,caveat
+MACE-MP-0,O,9,52.2,109.3,47.3,0.929,130.1,
+MACE-MP-0,F,1,219.2,137.8,,0.929,130.1,rests on <=2 bands
+MACE-MP-0,OH,2,495.3,1641.9,,0.929,130.1,rests on <=2 bands
+MACE-MP-0,all,12,140.0,367.1,,0.929,130.1,
+MACE-MPA-0,O,9,40.8,94.8,41.5,0.846,179.5,
+MACE-MPA-0,F,1,146.0,61.0,,0.846,179.5,rests on <=2 bands
+MACE-MPA-0,OH,2,627.0,2464.0,,0.846,179.5,rests on <=2 bands
+MACE-MPA-0,all,12,147.2,486.8,,0.846,179.5,

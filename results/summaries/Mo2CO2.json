@@ -164,5 +164,5 @@
     }
   ],
   "reliable": false,
-  "reliability_note": "MACE-MP-0: two imaginary modes (-184 Eu, -118 Eg; in-plane O/C shear) and a +5.8% lattice expansion; hcp-site relaxation gave an impossible -23 eV/cell energy drop."
+  "reliability_note": "MACE-MP-0: two imaginary modes (-184 Eu, -118 Eg; in-plane O/C shear) and a +5.8% lattice expansion; hcp-site relaxation gave an impossible -23 eV/cell energy drop. Three potentials expand Mo2CO2 by 6-11% from the experimental a = 2.87 A (MACE-MP-0 3.037, CHGNet 3.092, MACE-MPA-0 3.190 fcc / 3.088 hcp), so the input lattice itself is suspect. MPA-0 hcp - fcc = +0.67 eV/cell."
 }
