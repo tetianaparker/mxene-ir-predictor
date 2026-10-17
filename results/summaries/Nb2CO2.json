@@ -1,0 +1,141 @@
+{
+  "name": "Nb2CO2",
+  "row": {
+    "name": "Nb2CO2",
+    "M": "Nb",
+    "n": "2",
+    "X": "C",
+    "termination": "O",
+    "site": "fcc",
+    "a_A": "3.13",
+    "vacuum_A": "20",
+    "note": ""
+  },
+  "model": "MACE-MP-0 medium",
+  "settings": {
+    "supercell": "2x2x1",
+    "vacuum_A": 20.0,
+    "displacement_A": 0.01,
+    "relax_fmax_eV_A": 0.0001,
+    "c_fixed_A": 24.1939
+  },
+  "a_input_A": 3.13,
+  "a_relaxed_A": 3.1559,
+  "thickness_relaxed_A": 4.614,
+  "relax_converged": true,
+  "relax_steps": 12,
+  "energy_eV": -47.09980068324958,
+  "energy_per_atom_eV": -9.419960136649916,
+  "point_group": "-3m",
+  "n_displacements": 6,
+  "asr_max_fc_correction_eV_A2": 0.000930999188501036,
+  "acoustic_max_abs_cm1": 0.0,
+  "imaginary_modes": [],
+  "modes": [
+    {
+      "bands": [
+        0,
+        1,
+        2
+      ],
+      "frequency_cm1": 0.0,
+      "degeneracy": 3,
+      "irrep": null,
+      "ir_active": true,
+      "acoustic": true,
+      "imaginary": false
+    },
+    {
+      "bands": [
+        3,
+        4
+      ],
+      "frequency_cm1": 119.95,
+      "degeneracy": 2,
+      "irrep": "Eg",
+      "ir_active": false,
+      "acoustic": false,
+      "imaginary": false
+    },
+    {
+      "bands": [
+        5
+      ],
+      "frequency_cm1": 216.9,
+      "degeneracy": 1,
+      "irrep": "A1g",
+      "ir_active": false,
+      "acoustic": false,
+      "imaginary": false
+    },
+    {
+      "bands": [
+        6,
+        7
+      ],
+      "frequency_cm1": 244.93,
+      "degeneracy": 2,
+      "irrep": "Eu",
+      "ir_active": true,
+      "acoustic": false,
+      "imaginary": false
+    },
+    {
+      "bands": [
+        8,
+        9
+      ],
+      "frequency_cm1": 249.54,
+      "degeneracy": 2,
+      "irrep": "Eg",
+      "ir_active": false,
+      "acoustic": false,
+      "imaginary": false
+    },
+    {
+      "bands": [
+        10
+      ],
+      "frequency_cm1": 497.96,
+      "degeneracy": 1,
+      "irrep": "A2u",
+      "ir_active": true,
+      "acoustic": false,
+      "imaginary": false
+    },
+    {
+      "bands": [
+        11,
+        12
+      ],
+      "frequency_cm1": 498.76,
+      "degeneracy": 2,
+      "irrep": "Eu",
+      "ir_active": true,
+      "acoustic": false,
+      "imaginary": false
+    },
+    {
+      "bands": [
+        13
+      ],
+      "frequency_cm1": 501.65,
+      "degeneracy": 1,
+      "irrep": "A1g",
+      "ir_active": false,
+      "acoustic": false,
+      "imaginary": false
+    },
+    {
+      "bands": [
+        14
+      ],
+      "frequency_cm1": 549.26,
+      "degeneracy": 1,
+      "irrep": "A2u",
+      "ir_active": true,
+      "acoustic": false,
+      "imaginary": false
+    }
+  ]
+}
