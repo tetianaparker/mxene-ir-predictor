@@ -1,0 +1,13 @@
+name,termination,frequency_cm1,irrep,ir_active
+Ti3C2O2,O,99.44,Eg,False
+Ti3C2O2,O,148.7,Eu,True
+Ti3C2O2,O,176.94,A1g,False
+Ti3C2O2,O,298.61,A2u,True
+Ti3C2O2,O,326.5,Eu,True
+Ti3C2O2,O,343.04,Eg,False
+Ti3C2O2,O,457.99,Eu,True
+Ti3C2O2,O,508.29,A2u,True
+Ti3C2O2,O,521.07,Eg,False
+Ti3C2O2,O,556.34,A1g,False
+Ti3C2O2,O,568.82,A2u,True
+Ti3C2O2,O,678.0,A1g,False
